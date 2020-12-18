@@ -1,0 +1,47 @@
+>help //for help
+>show dbs //to see available databases
+>use shopDB //create db
+>db //to check in which db you're currently in
+
+||Performing CRUD operations in MongoDB
+
+//CREATE operation
+
+>db.products.insertOne
+({_id:1,name:"Pen",price:1.20}) db// it'll create a product collection in which the data will be added
+
+//we can also use insertMany for additon of more than one data into collections
+
+>show collections //it will show products only coz thats what we have till now
+>db
+
+
+// READ operation
+
+>db.products.find()  it'll show all the data from products 
+
+>db.products.find({name:"Pencil"}) //to get a particular data
+
+>db.products.find(price:{$gt:1}}) //it'll give the price which is greater than 1
+
+>db.products.find({_id:1}, {name:1}) //it will give you id as well as name
+
+>db.products.find({_id:1}, {name:1,_id:0}) //it will only return name field
+
+
+//UPDATE operation
+
+>db.products.updateOne({_id:1},{$set:{stock:32}}) //it will update the stock value in row 1
+
+>db.products.find() //it'll give the updated value
+
+>db.products.updateOne({_id:1},{$set:{stock:32}}) //it will update the stock value in row 2
+
+>db.products.find() //it'll give the updated value
+
+//DELETE operation
+
+>db.products.deleteOne({_id:2}) //it'll delete the row with id 2
+
+>db.products.find() //it'll give the data with only id 1
+
